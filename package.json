@@ -5,7 +5,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src --max-warnings=0",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
   },
   "dependencies": {
     "next": "12.0.4",
@@ -13,7 +22,23 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.16.0",
+    "@testing-library/jest-dom": "^5.16.0",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.3",
+    "@types/react": "^17.0.37",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
     "eslint": "7",
-    "eslint-config-next": "12.0.4"
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.0",
+    "jest": "^27.4.3",
+    "lint-staged": "^12.1.2",
+    "prettier": "2.5.0",
+    "typescript": "^4.5.2"
   }
 }
